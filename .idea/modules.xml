@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RubyOnRails.iml" filepath="$PROJECT_DIR$/RubyOnRails.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/friends.iml" filepath="$PROJECT_DIR$/.idea/modules/friends.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/users.iml" filepath="$PROJECT_DIR$/.idea/modules/users.iml" />
     </modules>
   </component>
 </project>
