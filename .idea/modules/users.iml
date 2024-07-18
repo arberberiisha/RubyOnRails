@@ -11,18 +11,18 @@
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../friends">
-      <sourceFolder url="file://$MODULE_DIR$/../../friends/features" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../friends/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../friends/test" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/../../friends/.bundle" />
-      <excludeFolder url="file://$MODULE_DIR$/../../friends/components" />
-      <excludeFolder url="file://$MODULE_DIR$/../../friends/log" />
-      <excludeFolder url="file://$MODULE_DIR$/../../friends/public/packs" />
-      <excludeFolder url="file://$MODULE_DIR$/../../friends/public/system" />
-      <excludeFolder url="file://$MODULE_DIR$/../../friends/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/../../friends/vendor/bundle" />
-      <excludeFolder url="file://$MODULE_DIR$/../../friends/vendor/cache" />
+    <content url="file://$MODULE_DIR$/../../users">
+      <sourceFolder url="file://$MODULE_DIR$/../../users/features" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../users/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../users/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/../../users/.bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../users/components" />
+      <excludeFolder url="file://$MODULE_DIR$/../../users/log" />
+      <excludeFolder url="file://$MODULE_DIR$/../../users/public/packs" />
+      <excludeFolder url="file://$MODULE_DIR$/../../users/public/system" />
+      <excludeFolder url="file://$MODULE_DIR$/../../users/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/../../users/vendor/bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../users/vendor/cache" />
     </content>
     <orderEntry type="jdk" jdkName="ruby-3.3.4-p94" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
