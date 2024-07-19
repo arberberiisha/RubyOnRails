@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 #Devise
 gem 'devise', '~> 4.9', '>= 4.9.4'
 
+gem 'rails-ujs'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
