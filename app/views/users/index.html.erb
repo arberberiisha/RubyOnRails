@@ -2,35 +2,37 @@
   <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">First Name</th>
-    <th scope="col">Last Name</th>
+    <th scope="col">Name</th>
     <th scope="col">Email</th>
     <th scope="col">Phone</th>
     <th scope="col">Twitter</th>
-    <th scope="col"></th>
+    <th scope="col">UserId</th>
+    <th colspan="2"></th>
   </tr>
   </thead>
   <tbody>
   <% @users.each do |user| %>
-  <tr>
-    <td></td>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.phone %></td>
-    <td><%= user.twitter %></td>
-    <div>
-    <td style="padding: 0px;">
-      <%= link_to 'Show', user, class: "btn btn-primary" %>
-    </td>
-    <td style="padding: 0px;">
-      <%= link_to 'Edit', edit_user_path(user), class: "btn btn-secondary" %>
-    </td>
-    <td style="padding: 0px;">
-      <%= button_to 'Delete', user, method: :delete, class: "btn btn-danger" %>
-    </td>
-    </div>
-  </tr>
+    <% if user.admin == current_admin %>
+      <tr>
+        <td></td>
+        <td><%= link_to user.first_name +  " " + user.last_name, user, class: "btn", style: "color: Blue" %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+        <td><%= user.twitter %></td>
+        <td><%= user.admin_id %></td>
+        <div>
+<!--          <td style="padding: 0px;">-->
+            <%#= link_to 'Show', user, class: "btn btn-primary" %>
+<!--          </td>-->
+          <td style="padding: 0px;">
+            <%= link_to 'Edit', edit_user_path(user), class: "btn btn-secondary mt-1" %>
+          </td>
+          <td style="padding: 0px;">
+            <%= button_to 'Delete', user, method: :delete, class: "btn btn-danger mt-1" %>
+          </td>
+        </div>
+      </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>

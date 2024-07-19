@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_admin!, except: [:index, :show]
+  before_action :correct_admin, only: [:edit, :update, :destroy]
   # GET /users or /users.json
   def index
     @users = User.all
@@ -12,7 +13,8 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    # @user = User.new
+    @user = current_admin.users.build
   end
 
   # GET /users/1/edit
@@ -21,7 +23,8 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
+    # @user = User.new(user_params)
+    @user = correct_admin.users.build(user_params)
 
     respond_to do |format|
       if @user.save
@@ -57,6 +60,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def correct_admin
+    Rails.logger.debug "Current Admin: #{current_admin.inspect}"
+    @user = current_admin.users.find_by(id: params[:id])
+    redirect_to users_path, notice: "Not Authorize to edit this User." if @user.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -65,6 +74,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :twitter)
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :twitter, :admin_id)
     end
 end
