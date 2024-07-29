@@ -23,9 +23,8 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-
     Rails.logger.debug "correct_admin: #{correct_admin.inspect}"
-    # @user = User.new(user_params)
+
     @user = correct_admin.users.build(user_params)
 
     respond_to do |format|
