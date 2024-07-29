@@ -23,7 +23,9 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    Rails.logger.debug "correct_admin: #{correct_admin.inspect}"
+    # Call correct_admin and handle redirect if necessary
+    correct_admin
+    return if performed?
 
     @user = correct_admin.users.build(user_params)
 
@@ -64,7 +66,9 @@ class UsersController < ApplicationController
   def correct_admin
     Rails.logger.debug "Current Admin: #{current_admin.inspect}"
     @user = current_admin.users.find_by(id: params[:id])
-    redirect_to users_path, notice: "Not Authorize to edit this User." if @user.nil?
+    if @user.nil?
+      redirect_to users_path, notice: "Not Authorized to edit this User."
+    end
   end
 
   private
