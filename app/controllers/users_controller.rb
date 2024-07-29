@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, except: [:index, :show]
   before_action :correct_admin, only: [:edit, :update, :destroy]
   # GET /users or /users.json
@@ -23,12 +23,7 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    # Call correct_admin and handle redirect if necessary
-    correct_admin
-    return if performed?
-
-    @user = correct_admin.users.build(user_params)
-
+    @user = User.new(user_params)
     respond_to do |format|
       if @user.save
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
@@ -55,7 +50,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    @user.destroy!
+    @user.destroy
 
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully deleted." }
@@ -64,11 +59,8 @@ class UsersController < ApplicationController
   end
 
   def correct_admin
-    Rails.logger.debug "Current Admin: #{current_admin.inspect}"
     @user = current_admin.users.find_by(id: params[:id])
-    if @user.nil?
-      redirect_to users_path, notice: "Not Authorized to edit this User."
-    end
+    redirect_to users_path, notice: "Not Authorized To Edit This Friend" if @user.nil?
   end
 
   private
