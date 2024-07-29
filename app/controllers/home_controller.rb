@@ -4,6 +4,6 @@ class HomeController < ApplicationController
   end
 
   def about
-    @about_me = "My first RubyOnRails project..."
+    @about_me = "My first RubyOnRails project...!"
   end
 end
