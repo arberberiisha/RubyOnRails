@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :authenticate_admin!, except: [:index, :show]
-  before_action :correct_admin, only: [:edit, :update, :destroy]
+  before_action :correct_admin, only: [:edit, :update, :destroy, :create, :new]
   # GET /users or /users.json
   def index
     @users = User.all
@@ -23,6 +23,8 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
+
+    Rails.logger.debug "correct_admin: #{correct_admin.inspect}"
     # @user = User.new(user_params)
     @user = correct_admin.users.build(user_params)
 
