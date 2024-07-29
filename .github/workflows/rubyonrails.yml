@@ -11,6 +11,16 @@ on:
   pull_request:
     branches: [ "master" ]
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Heroku
+      - uses: AkhileshNS/heroku-deploy@v3.13.15
+        with:
+          heroku_api_key: d3dc6e9b4f5a408cc260c782b7afb98c6833b535f8516093644cb89dfa4841e2a5747e71e32660bf78cc23a0e706f646ad485f97148d8accc423bad18f86affd
+          heroku_app_name: "friends" #Must be unique in Heroku
+          heroku_email: "aberisha85@hotmail.com"
+
   test:
     runs-on: ubuntu-latest
     services:
